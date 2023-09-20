@@ -8,10 +8,12 @@ class ArrayQueue:
 
     def enqueue(self, data):
         self.array.append(data)
+        self.size += 1
 
     def dequeue(self):
         if self.is_empty():
             raise Exception("Очередь пуста")
+        self.size -= 1
         return self.array.pop(0)
 
     def peek(self):
