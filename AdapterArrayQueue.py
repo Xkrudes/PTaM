@@ -21,19 +21,22 @@ class ArrayQueue:
             raise Exception("Очередь пуста")
         return self.array[0]
 
-    def size(self):
+    def __len__(self):
         return self.size
 
-    def __str__(self):
+    def __str__(self) -> str:
         return " -> ".join(map(str, self.array))
 
-    def SetElement(self, index, data):
+    def SetElement(self, index: int, data: int):
         if index >= 0 and index < self.size:
             self.array[index] = data
     
-    def GetElement(self, index):
-        if index >= 0 and index <= self.size:
+    def __getitem__(self, index: int) -> int:
             return self.array[index]
 
 if __name__ == '__main__':
-    pass
+    array = ArrayQueue()
+    array.enqueue(1)
+    array.enqueue(2)
+    array.enqueue(3)
+    print(array)
